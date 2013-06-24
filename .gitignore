@@ -6,6 +6,7 @@
 
 /rails.md
 /.project
+/.env
 
 # Ignore bundler config
 /.bundle
