@@ -8,6 +8,7 @@ end
 
 group :production do
   gem 'pg', '0.12.2'
+  gem 'unicorn'
 end
 
 # Gems used only for assets and not required
@@ -29,9 +30,6 @@ gem 'jquery-rails', '2.0.2'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
