@@ -5,7 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.13'
 
 group :development do
-  gem 'sqlite3', '1.3.5'
+  gem 'pg', '0.12.2'
   gem 'rspec-rails', '2.11.0'
 end
 
