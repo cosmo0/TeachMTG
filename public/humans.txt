@@ -3,13 +3,15 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Thomas - Lead dev - @cosmo0
 
 # THANKS
 
-    <name>
+    None yet. Add your name here!
 
 # TECHNOLOGY COLOPHON
 
+	Ruby, Rails
     HTML5, CSS3
     Normalize.css, jQuery, Modernizr
+	Boilerplate, Bootstrap
