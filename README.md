@@ -12,3 +12,5 @@ Go to [TeachMTG.com](http://teachmtg.com) and start learning!
 
 Like any other GitHub project if you want to contribute to the code.  
 If you only want to suggest modifications to decks, contact me at contact@teachmtg.com
+
+Note that I'm using this project as an opportunity to learn more about Ruby and Rails. So it might not progress as planned.
