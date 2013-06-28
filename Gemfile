@@ -30,7 +30,7 @@ group :test do
   #gem 'libnotify', '0.5.9'
 
   # test gems on Windows
-  gem 'rb-fchange', '0.0.5'
+  gem 'wdm', '0.1.0'
   gem 'rb-notifu', '0.0.4'
   gem 'win32console', '1.3.0'
 end
