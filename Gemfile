@@ -8,6 +8,7 @@ group :development do
   gem 'pg', '0.12.2'
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'
+  gem 'therubyracer', platforms: :ruby
 end
 
 # Gems used only for assets and not required
@@ -26,17 +27,18 @@ group :test do
   #gem 'growl', '1.0.3'
 
   # test gems on Linux
-  #gem 'rb-inotify', '0.8.8'
-  #gem 'libnotify', '0.5.9'
+  gem 'rb-inotify', '0.9.0'
+  gem 'libnotify', '0.5.9'
+  gem 'ffi', '~> 1.0.0'
 
   # test gems on Windows
-  gem 'wdm', '0.1.0'
-  gem 'rb-notifu', '0.0.4'
-  gem 'win32console', '1.3.0'
+  #gem 'wdm', '0.1.0'
+  #gem 'rb-notifu', '0.0.4'
+  #gem 'win32console', '1.3.0'
 end
 
 group :development, :test do
-  gem 'guard-spork', '1.2.0'
+  gem 'guard-spork', '1.4.2'
   gem 'childprocess', '0.3.9'
   gem 'spork', '0.9.2'
 end
