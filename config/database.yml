@@ -20,4 +20,4 @@ production:
   adapter: postgresql
   host: localhost
   username: vagrant
-  database: vagrant
+  database: teachmtg-prod
