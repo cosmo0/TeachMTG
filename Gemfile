@@ -4,10 +4,18 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
+gem 'haml'
+
 group :development do
+  gem 'haml-rails'
+  gem 'hpricot'
+  gem 'html2haml'
+
   gem 'pg', '0.12.2'
+
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'
+
   gem 'therubyracer', platforms: :ruby
 end
 
@@ -17,6 +25,8 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
+
+  gem 'bootstrap-sass', '~> 2.3.2.1'
 end
 
 group :test do
