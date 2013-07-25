@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 
 // Avoid `console` errors in browsers that lack a console.
