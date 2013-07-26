@@ -27,5 +27,5 @@ Note that I'm using this project as an opportunity to learn more about Ruby and 
 ### Installation
 
     bundle install
-    bundle exec guard -ip
+    bundle exec guard --force-polling
     rails s
