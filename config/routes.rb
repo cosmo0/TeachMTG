@@ -2,7 +2,10 @@ TeachmtgCom::Application.routes.draw do
 
   root :to => 'static_pages#home'
 
-  get "static_pages/home"
+  match '/home', to: 'static_pages#home', via: 'get'
+  match '/basics', to: 'static_pages#basics', via: 'get'
+  match '/decks', to: 'static_pages#decks', via: 'get'
+  match '/drafting', to: 'static_pages#drafting', via: 'get'
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
