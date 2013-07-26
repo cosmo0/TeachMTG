@@ -12,6 +12,9 @@
 		<title><%= yield(:title) %></title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= csrf_meta_tags %>
+		<!--[if lt IE 9]>
+	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
 	</head>
 	<body data-spy="scroll" data-target=".subnav" data-offset="80">
 		<!--[if lt IE 7]>
@@ -33,27 +36,27 @@
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li>
-								<a href="/">Home</a>
+								<%= link_to "Home", '#' %>
 							</li>
 							<li>
-								<a href="#">Basics</a>
+								<%= link_to "Basics", '#' %>
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Simple &amp; Cheap Decks <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="#">Concepts</a>
+										<%= link_to "Concepts", '#' %>
 									</li>
 									<li>
-										<a href="#">Beginners</a>
+										<%= link_to "Beginners", '#' %>
 									</li>
 									<li>
-										<a href="#">Advanced</a>
+										<%= link_to "Advanced", '#' %>
 									</li>
 								</ul>
 							</li>
 							<li>
-								<a href="#">Drafting</a>
+								<%= link_to "Drafting", '#' %>
 							</li>
 						</ul>
 					</div>
