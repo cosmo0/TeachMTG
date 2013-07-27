@@ -5,6 +5,8 @@ TeachmtgCom::Application.routes.draw do
   match '/home', to: 'static_pages#home', via: 'get'
   match '/basics', to: 'static_pages#basics', via: 'get'
   match '/decks', to: 'static_pages#decks', via: 'get'
+  match '/beginners', to: 'static_pages#beginners', via: 'get'
+  match '/advanced', to: 'static_pages#advanced', via: 'get'
   match '/drafting', to: 'static_pages#drafting', via: 'get'
 
 # The priority is based upon order of creation:
