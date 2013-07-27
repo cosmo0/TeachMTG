@@ -64,4 +64,12 @@ describe "Static pages" do
     it { should have_selector('title', :text => /drafting/i) }
   end
 
+  # INFOS
+
+  describe "Resources page" do
+    before { visit resources_path }
+    it { should have_selector('h1', :text => /resources/i) }
+    it { should have_selector('title', :text => /resources/i) }
+  end
+
 end

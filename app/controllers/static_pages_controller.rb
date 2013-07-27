@@ -33,4 +33,9 @@ class StaticPagesController < ApplicationController
   def drafting
   end
 
+  # Infos
+
+  def resources
+  end
+
 end

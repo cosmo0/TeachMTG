@@ -14,8 +14,14 @@ TeachmtgCom::Application.routes.draw do
   match '/decks', to: 'static_pages#decks', via: 'get'
   match '/beginners', to: 'static_pages#beginners', via: 'get'
   match '/advanced', to: 'static_pages#advanced', via: 'get'
+  
+  # drafting
+
   match '/drafting', to: 'static_pages#drafting', via: 'get'
 
+  # infos
+
+  match '/resources', to: 'static_pages#resources', via: 'get'
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
