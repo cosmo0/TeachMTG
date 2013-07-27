@@ -10,11 +10,33 @@ describe "Static pages" do
     it { should have_selector('title', :text => "How to teach Magic: The Gathering") }
   end
 
+  # BASICS
+
   describe "Basics page" do
     before { visit basics_path }
-    it { should have_selector('h1', :text => /basics/i) }
-    it { should have_selector('title', :text => /basics/i) }
+    it { should have_selector('h1', :text => /basic/i) }
+    it { should have_selector('title', :text => /basic/i) }
   end
+
+  describe "World page" do
+    before { visit world_path }
+    it { should have_selector('h1', :text => /world/i) }
+    it { should have_selector('title', :text => /world/i) }
+  end
+
+  describe "Philosophies page" do
+    before { visit philosophies_path }
+    it { should have_selector('h1', :text => /philosophies/i) }
+    it { should have_selector('title', :text => /philosophies/i) }
+  end
+
+  describe "Rules page" do
+    before { visit rules_path }
+    it { should have_selector('h1', :text => /rules/i) }
+    it { should have_selector('title', :text => /rules/i) }
+  end
+
+  # DECKS
 
   describe "Decks page" do
     before { visit decks_path }
@@ -33,6 +55,8 @@ describe "Static pages" do
     it { should have_selector('h1', :text => /advanced/i) }
     it { should have_selector('title', :text => /advanced/i) }
   end
+
+  # DRAFTING
 
   describe "Drafting page" do
     before { visit drafting_path }
