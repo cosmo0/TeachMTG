@@ -1,5 +1,7 @@
 TeachmtgCom::Application.routes.draw do
 
+  get "decks/new"
+  
   # home
   root :to => 'static_pages#home'
   match '/home', to: 'static_pages#home', via: 'get'
@@ -22,6 +24,7 @@ TeachmtgCom::Application.routes.draw do
   # infos
 
   match '/resources', to: 'static_pages#resources', via: 'get'
+
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
