@@ -31,4 +31,4 @@ Note that I'm using this project as an opportunity to learn more about Ruby and 
 
 ### Development
 
-    bundle exec guard --force-polling
+    bundle exec guard -pc
