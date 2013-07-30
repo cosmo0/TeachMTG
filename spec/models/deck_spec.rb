@@ -48,4 +48,20 @@ describe Deck do
     it { should_not be_valid }
   end
 
+  describe "when description_file is too long" do
+    before { @deck.description_file = "This is a description instead of a description file. This is wrong." }
+    it { should_not be_valid }
+  end
+
+  describe "when a deck with same data already exists" do
+    before do
+      deck_with_same_data = @deck.dup
+      deck_with_same_data.title = @deck.title.upcase
+      deck_with_same_data.description_file = @deck.description_file.upcase
+      deck_with_same_data.save
+    end
+
+    it { should_not be_valid }
+  end
+
 end
