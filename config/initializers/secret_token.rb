@@ -21,3 +21,4 @@ def secure_token
 end
 
 TeachmtgCom::Application.config.secret_key_base = secure_token
+TeachmtgCom::Application.config.secret_token = secure_token
