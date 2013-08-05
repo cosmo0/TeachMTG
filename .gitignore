@@ -20,6 +20,9 @@
 /log/*.log
 /tmp
 
+# secret key
+/.secret
+
 # Compiled source #
 ###################
 *.com

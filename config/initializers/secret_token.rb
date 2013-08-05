@@ -4,4 +4,20 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-TeachmtgCom::Application.config.secret_token = '117c07793ff1d539c9597aaec035d7d084881c7856897702dfad4d06c92677191c51b2b348ca294ebe85b99b7a4eaf857f9b11d1d90cf8b930fe2d71632457b5'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+TeachmtgCom::Application.config.secret_key_base = secure_token
