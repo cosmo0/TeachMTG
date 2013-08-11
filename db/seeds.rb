@@ -6,6 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Initialize card types
+
+CardType.create name: "Creature"
+CardType.create name: "Land"
+CardType.create name: "Enchantment"
+CardType.create name: "Artifact"
+CardType.create name: "Instant"
+CardType.create name: "Sorcery"
+
 # Beginner's decks
 
 Deck.create category: "b",
