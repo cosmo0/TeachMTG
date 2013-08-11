@@ -2,6 +2,8 @@ TeachmtgCom::Application.routes.draw do
 
   get "decks/new"
   
+  resources :decks
+
   # home
   root :to => 'static_pages#home'
   match '/home', to: 'static_pages#home', via: 'get'
@@ -13,7 +15,7 @@ TeachmtgCom::Application.routes.draw do
   match '/rules', to: 'static_pages#rules', via: 'get'
 
   # decks
-  match '/decks', to: 'static_pages#decks', via: 'get'
+  match '/concepts', to: 'static_pages#decks', via: 'get'
   match '/beginners', to: 'static_pages#beginners', via: 'get'
   match '/advanced', to: 'static_pages#advanced', via: 'get'
   
