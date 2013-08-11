@@ -27,8 +27,10 @@ Note that I'm using this project as an opportunity to learn more about Ruby and 
 ### Installation
 
     bundle install
+    bundle exec rake db:setup
     rails s
 
 ### Development
 
+    bundle exec rake test:prepare
     bundle exec guard -pc
