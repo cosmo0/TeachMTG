@@ -1,4 +1,4 @@
-- provide(:title, @deck.title)
+- provide(:title, @deck.title + " - Teach Magic: The Gathering")
 
 %h1
   = @deck.title
@@ -11,4 +11,4 @@
 %h2 Deck list
 
 .decklist
-  = deck_list(@deck_list)
+  = decklist_to_html(@deck_list)

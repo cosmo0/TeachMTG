@@ -1,6 +1,6 @@
 module DecksHelper
 
-  def deck_list(list)
+  def decklist_to_html(list)
     
 
     return list
