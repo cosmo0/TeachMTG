@@ -11,9 +11,9 @@ class Deck < ActiveRecord::Base
 
   validates :slug,      presence: true,
                         uniqueness: { case_sensitive: false },
-                        length: { maximum: 20 }
+                        length: { maximum: 20 },
+                        format: { with: /^[^\s]+$/ }
 
   validates :category,  presence: true
 
-  validates_format_of :slug, :with => /^[^\s]+$/
 end
