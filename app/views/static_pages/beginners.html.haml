@@ -3,11 +3,10 @@
 %h1 Decks for beginners
 
 %p
-    Each beginner deck has only one color.
+  Each beginner deck has only one color.
 
-%ul
-    %li White: enchantments
-    %li Blue: illusions
-    %li Black: vampires
-    %li Red: goblins
-    %li Green: ramp
+%ul.decks
+  - @decks.each do |d|
+    %li
+      %a{ href: deck_path(d) }
+        =d.title

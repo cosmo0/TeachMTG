@@ -19,13 +19,15 @@ class StaticPagesController < ApplicationController
 
   # Simple and cheap decks
 
-  def decks
+  def concepts
   end
 
   def beginners
+    @decks = Deck.find_all_by_category('B')
   end
 
   def advanced
+    @decks = Deck.find_all_by_category('A')
   end
 
   # Drafting
