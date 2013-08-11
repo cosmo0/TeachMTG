@@ -6,7 +6,14 @@ class Deck < ActiveRecord::Base
     self.category.upcase!
   end
 
-  validates :title,     presence: true, uniqueness: { case_sensitive: false }
-  validates :slug,      presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 20 }
+  validates :title,     presence: true,
+                        uniqueness: { case_sensitive: false }
+
+  validates :slug,      presence: true,
+                        uniqueness: { case_sensitive: false },
+                        length: { maximum: 20 }
+
   validates :category,  presence: true
+
+  validates_format_of :slug, :with => /^[^\s]+$/
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Deck do
+describe "Deck Model" do
   before { @deck = Deck.new title: "White", category: "B", slug: "white" }
 
   subject { @deck }

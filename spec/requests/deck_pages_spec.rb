@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "DeckPages" do
+describe "Deck Pages" do
 
   subject { page }
 
@@ -10,8 +10,13 @@ describe "DeckPages" do
     it { should have_selector('title', text: /new deck/i) }
   end
 
-  # describe "Deck display" do
-  #   before { visit 'decks/show/1' }    
-  # end
+  describe "Deck list" do
+    let(:deck) { FactoryGirl.create(:deck) }
+
+    before { visit deck_path(deck) }
+
+    it { should have_selector('h1', text: deck.title) }
+    it { should have_selector('title', text: deck.title) }
+  end
 
 end
