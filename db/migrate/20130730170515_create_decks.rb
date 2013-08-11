@@ -3,8 +3,7 @@ class CreateDecks < ActiveRecord::Migration
     create_table :decks do |t|
       t.string :title
       t.string :category
-      t.string :description_file
-      t.text :decklist
+      t.string :slug
 
       t.timestamps
     end

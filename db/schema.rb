@@ -16,13 +16,12 @@ ActiveRecord::Schema.define(:version => 20130730182927) do
   create_table "decks", :force => true do |t|
     t.string   "title"
     t.string   "category"
-    t.string   "description_file"
-    t.text     "decklist"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "decks", ["description_file"], :name => "index_decks_on_description_file", :unique => true
+  add_index "decks", ["slug"], :name => "index_decks_on_slug", :unique => true
   add_index "decks", ["title"], :name => "index_decks_on_title", :unique => true
 
 end

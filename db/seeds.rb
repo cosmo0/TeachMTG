@@ -5,3 +5,47 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Beginner's decks
+
+Deck.create category: "b",
+  title: "White: Auras",
+  slug: "white"
+
+Deck.create category: "b",
+  title: "Blue: Tempo",
+  slug: "blue"
+
+Deck.create category: "b",
+  title: "Black: Sacrifice",
+  slug: "black"
+
+Deck.create category: "b",
+  title: "Red: Goblins",
+  slug: "red"
+
+Deck.create category: "b",
+  title: "Green: Ramp",
+  slug: "green"
+
+# Advanced decks
+
+Deck.create category: "a",
+  title: "White and blue: Auras",
+  slug: "white-blue"
+
+Deck.create category: "a",
+  title: "Blue and green: Tempo",
+  slug: "blue-green"
+
+Deck.create category: "a",
+  title: "Black and white: Sacrifice",
+  slug: "black-white"
+
+Deck.create category: "a",
+  title: "Red and black: Goblins",
+  slug: "red-black"
+
+Deck.create category: "a",
+  title: "Green and red: Ramp",
+  slug: "green-red"

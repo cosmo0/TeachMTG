@@ -54,7 +54,7 @@ describe "Static pages" do
   # DECKS
 
   describe "Decks page" do
-    before { visit decks_path }
+    before { visit concepts_path }
     let(:heading) { /decks/i }
     let(:page_title) { /decks/i }
 
