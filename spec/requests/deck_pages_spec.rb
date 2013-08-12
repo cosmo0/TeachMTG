@@ -10,7 +10,7 @@ describe "Deck Pages" do
     it { should have_selector('title', text: /new deck/i) }
   end
 
-  describe "Deck list" do
+  describe "Deck details" do
     let(:deck) { FactoryGirl.create(:deck) }
 
     before { visit deck_path(deck) }
