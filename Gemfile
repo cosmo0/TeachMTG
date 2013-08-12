@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 
 gem 'haml'
 gem 'bluecloth'
+gem "friendly_id", "~> 4.0.9"
 
 group :development do
   gem 'haml-rails'

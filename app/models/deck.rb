@@ -1,10 +1,9 @@
 class Deck < ActiveRecord::Base
+  extend FriendlyId
+
   attr_accessible :category, :slug, :title
 
-  before_save do
-    self.slug.downcase!
-    self.category.upcase!
-  end
+  friendly_id :slug
 
   validates :title,     presence: true,
                         uniqueness: { case_sensitive: false }
@@ -16,5 +15,10 @@ class Deck < ActiveRecord::Base
 
   validates :category,  presence: true,
                         format: { with: /[A|B]/ }
+
+  before_save do
+    self.slug.downcase!
+    self.category.upcase!
+  end
 
 end

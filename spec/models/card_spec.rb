@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Card model" do
   before do
-    d = Deck.find(1) 
+    d = Deck.first
     t = CardType.find_by_name("Land")
 
     @card = Card.new name: "plains", quantity: "24", deck: d, card_type: t

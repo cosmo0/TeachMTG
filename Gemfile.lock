@@ -61,6 +61,7 @@ GEM
       railties (>= 3.0.0)
     ffi (1.0.11)
     formatador (0.2.4)
+    friendly_id (4.0.10)
     guard (1.8.1)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -223,6 +224,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   factory_girl_rails (= 4.2.1)
   ffi (~> 1.0.0)
+  friendly_id (~> 4.0.9)
   guard-rspec (= 1.2.1)
   guard-spork (= 1.4.2)
   haml
