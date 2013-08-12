@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Deck Model" do
-  before { @deck = Deck.new title: "White", category: "B", slug: "white" }
+  before { @deck = Deck.new title: "White test", category: "B", slug: "white-test" }
 
   subject { @deck }
 
