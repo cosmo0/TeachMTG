@@ -21,6 +21,11 @@ describe "Deck Model" do
     it { should_not be_valid }
   end
 
+  describe "when category is invalid" do
+    before { @deck.category = "c" }
+    it { should_not be_valid }
+  end
+
   describe "when slug is not present" do
     before { @deck.slug = " " }
     it { should_not be_valid }

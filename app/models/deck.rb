@@ -14,6 +14,7 @@ class Deck < ActiveRecord::Base
                         length: { maximum: 20 },
                         format: { with: /^[^\s]+$/ }
 
-  validates :category,  presence: true
+  validates :category,  presence: true,
+                        format: { with: /[A|B]/ }
 
 end

@@ -1,8 +1,12 @@
 require 'spec_helper'
 
 describe "Card model" do
-  before { @card = Card.new name: "plains", quantity: "24",
-    deck: Deck.find(1), card_type: CardType.find_by_name(/land/i) }
+  before do
+    d = Deck.find(1) 
+    t = CardType.find_by_name("Land")
+
+    @card = Card.new name: "plains", quantity: "24", deck: d, card_type: t
+  end
 
   subject { @card }
 
@@ -12,4 +16,11 @@ describe "Card model" do
     it { should respond_to(:deck) }
     it { should respond_to(:card_type) }
   end
+
+  describe "when quantity is 0" do
+    before { @card.quantity = 0 }
+    
+    it { should_not be_valid }
+  end
+
 end
