@@ -8,53 +8,69 @@
 
 # Initialize card types
 
-CardType.create name: "Creature"
-CardType.create name: "Land"
-CardType.create name: "Enchantment"
-CardType.create name: "Artifact"
-CardType.create name: "Instant"
-CardType.create name: "Sorcery"
+CardType.find_or_create_by_name "Creature"
+CardType.find_or_create_by_name "Land"
+CardType.find_or_create_by_name "Enchantment"
+CardType.find_or_create_by_name "Artifact"
+CardType.find_or_create_by_name "Instant"
+CardType.find_or_create_by_name "Sorcery"
 
 # Beginner's decks
 
-Deck.create category: "b",
-  title: "White: Auras",
-  slug: "white"
+deck_white = Deck.find_or_create_by_slug category: "b",
+             title: "White: Auras",
+             slug: "white"
+Card.create deck: deck_white,
+            card_type: CardType.find_by_name("Land"),
+            quantity: 24,
+            name: "Plains"
+Card.create deck: deck_white,
+            card_type: CardType.find_by_name("Creature"),
+            quantity: 4,
+            name: "Elite Vanguard"
+Card.create deck: deck_white,
+            card_type: CardType.find_by_name("Enchantment"),
+            quantity: 4,
+            name: "Ethereal Armor"
+Card.create deck: deck_white,
+            card_type: CardType.find_by_name("Instant"),
+            quantity: 2,
+            name: "Rebuke"
 
-Deck.create category: "b",
-  title: "Blue: Tempo",
-  slug: "blue"
+Deck.find_or_create_by_slug category: "b",
+            title: "Blue: Tempo",
+            slug: "blue"
 
-Deck.create category: "b",
-  title: "Black: Sacrifice",
-  slug: "black"
+Deck.find_or_create_by_slug category: "b",
+            title: "Black: Sacrifice",
+            slug: "black"
 
-Deck.create category: "b",
-  title: "Red: Goblins",
-  slug: "red"
+Deck.find_or_create_by_slug category: "b",
+            title: "Red: Goblins",
+            slug: "red"
 
-Deck.create category: "b",
-  title: "Green: Ramp",
-  slug: "green"
+Deck.find_or_create_by_slug category: "b",
+            title: "Green: Ramp",
+            slug: "green"
 
 # Advanced decks
 
-Deck.create category: "a",
-  title: "White and blue: Auras",
-  slug: "white-blue"
+Deck.find_or_create_by_slug category: "a",
+            title: "White and blue: Auras",
+            slug: "white-blue"
 
-Deck.create category: "a",
-  title: "Blue and green: Tempo",
-  slug: "blue-green"
+Deck.find_or_create_by_slug category: "a",
+            title: "Blue and green: Tempo",
+            slug: "blue-green"
 
-Deck.create category: "a",
-  title: "Black and white: Sacrifice",
-  slug: "black-white"
+Deck.find_or_create_by_slug category: "a",
+            title: "Black and white: Sacrifice",
+            slug: "black-white"
 
-Deck.create category: "a",
-  title: "Red and black: Goblins",
-  slug: "red-black"
+Deck.find_or_create_by_slug category: "a",
+            title: "Red and black: Goblins",
+            slug: "red-black"
 
-Deck.create category: "a",
-  title: "Green and red: Ramp",
-  slug: "green-red"
+Deck.find_or_create_by_slug category: "a",
+            title: "Green and red: Ramp",
+            slug: "green-red"

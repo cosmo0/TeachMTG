@@ -14,4 +14,7 @@ class DecksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
 end
