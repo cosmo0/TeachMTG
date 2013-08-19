@@ -6,71 +6,59 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Initialize card types
+##### Initialize card types
 
-CardType.find_or_create_by_name "Creature"
-CardType.find_or_create_by_name "Land"
-CardType.find_or_create_by_name "Enchantment"
-CardType.find_or_create_by_name "Artifact"
-CardType.find_or_create_by_name "Instant"
-CardType.find_or_create_by_name "Sorcery"
+type_creature = CardType.find_or_create_by_name "Creature"
+type_land = CardType.find_or_create_by_name "Land"
+type_enchantment = CardType.find_or_create_by_name "Enchantment"
+type_artifact = CardType.find_or_create_by_name "Artifact"
+type_instant = CardType.find_or_create_by_name "Instant"
+type_sorcery = CardType.find_or_create_by_name "Sorcery"
 
-# Beginner's decks
+##### Beginner's decks
 
-deck_white = Deck.find_or_create_by_slug category: "b",
-             title: "White: Auras",
-             slug: "white"
-Card.create deck: deck_white,
-            card_type: CardType.find_by_name("Land"),
-            quantity: 24,
-            name: "Plains"
-Card.create deck: deck_white,
-            card_type: CardType.find_by_name("Creature"),
-            quantity: 4,
-            name: "Elite Vanguard"
-Card.create deck: deck_white,
-            card_type: CardType.find_by_name("Enchantment"),
-            quantity: 4,
-            name: "Ethereal Armor"
-Card.create deck: deck_white,
-            card_type: CardType.find_by_name("Instant"),
-            quantity: 2,
-            name: "Rebuke"
+# White
 
-Deck.find_or_create_by_slug category: "b",
-            title: "Blue: Tempo",
-            slug: "blue"
+deck_white = Deck.find_or_create_by_slug category: "b", title: "White: Auras", slug: "white"
+Card.create deck: deck_white, card_type: type_land, quantity: 24, name: "Plains"
+Card.create deck: deck_white, card_type: type_creature, quantity: 4, name: "Elite Vanguard"
+Card.create deck: deck_white, card_type: type_enchantment, quantity: 4, name: "Ethereal Armor"
+Card.create deck: deck_white, card_type: type_instant, quantity: 2, name: "Rebuke"
 
-Deck.find_or_create_by_slug category: "b",
-            title: "Black: Sacrifice",
-            slug: "black"
+# Blue
 
-Deck.find_or_create_by_slug category: "b",
-            title: "Red: Goblins",
-            slug: "red"
+deck_blue = Deck.find_or_create_by_slug category: "b", title: "Blue: Tempo", slug: "blue"
 
-Deck.find_or_create_by_slug category: "b",
-            title: "Green: Ramp",
-            slug: "green"
+# Black
 
-# Advanced decks
+Deck.find_or_create_by_slug category: "b", title: "Black: Attrition", slug: "black"
 
-Deck.find_or_create_by_slug category: "a",
-            title: "White and blue: Auras",
-            slug: "white-blue"
+# Red
 
-Deck.find_or_create_by_slug category: "a",
-            title: "Blue and green: Tempo",
-            slug: "blue-green"
+Deck.find_or_create_by_slug category: "b", title: "Red: Goblins", slug: "red"
 
-Deck.find_or_create_by_slug category: "a",
-            title: "Black and white: Sacrifice",
-            slug: "black-white"
+# Green
 
-Deck.find_or_create_by_slug category: "a",
-            title: "Red and black: Goblins",
-            slug: "red-black"
+Deck.find_or_create_by_slug category: "b", title: "Green: Ramp", slug: "green"
 
-Deck.find_or_create_by_slug category: "a",
-            title: "Green and red: Ramp",
-            slug: "green-red"
+##### Advanced decks
+
+# White/Blue
+
+Deck.find_or_create_by_slug category: "a", title: "White and blue: Auras", slug: "white-blue"
+
+# Blue/Green
+
+Deck.find_or_create_by_slug category: "a", title: "Blue and green: Tempo", slug: "blue-green"
+
+# Black/White
+
+Deck.find_or_create_by_slug category: "a", title: "Black and white: Attrition", slug: "black-white"
+
+# Red/Black
+
+Deck.find_or_create_by_slug category: "a", title: "Red and black: Goblins", slug: "red-black"
+
+# Red/Green
+
+Deck.find_or_create_by_slug category: "a", title: "Green and red: Ramp", slug: "green-red"

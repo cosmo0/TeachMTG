@@ -1,7 +1,4 @@
 class DecksController < ApplicationController
- 
-  def new
-  end
 
   def show
     @deck = Deck.find(params[:id])
@@ -15,6 +12,7 @@ class DecksController < ApplicationController
   end
 
   def edit
+    @deck = Deck.find(params[:id])
   end
 
 end
