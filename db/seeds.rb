@@ -19,7 +19,7 @@ type_sorcery = CardType.find_or_create_by_name "Sorcery"
 
 # White
 
-deck_white = Deck.find_or_create_by_slug category: "b", title: "White: Auras", slug: "white"
+deck_white = Deck.find_or_create_by_slug category: "B", title: "White: Auras", slug: "white"
 Card.create deck: deck_white, card_type: type_land, quantity: 24, name: "Plains"
 Card.create deck: deck_white, card_type: type_creature, quantity: 4, name: "Elite Vanguard"
 Card.create deck: deck_white, card_type: type_enchantment, quantity: 4, name: "Ethereal Armor"
@@ -27,38 +27,38 @@ Card.create deck: deck_white, card_type: type_instant, quantity: 2, name: "Rebuk
 
 # Blue
 
-deck_blue = Deck.find_or_create_by_slug category: "b", title: "Blue: Tempo", slug: "blue"
+deck_blue = Deck.find_or_create_by_slug category: "B", title: "Blue: Tempo", slug: "blue"
 
 # Black
 
-Deck.find_or_create_by_slug category: "b", title: "Black: Attrition", slug: "black"
+deck_black = Deck.find_or_create_by_slug category: "B", title: "Black: Attrition", slug: "black"
 
 # Red
 
-Deck.find_or_create_by_slug category: "b", title: "Red: Goblins", slug: "red"
+deck_red = Deck.find_or_create_by_slug category: "B", title: "Red: Goblins", slug: "red"
 
 # Green
 
-Deck.find_or_create_by_slug category: "b", title: "Green: Ramp", slug: "green"
+deck_green = Deck.find_or_create_by_slug category: "B", title: "Green: Ramp", slug: "green"
 
 ##### Advanced decks
 
 # White/Blue
 
-Deck.find_or_create_by_slug category: "a", title: "White and blue: Auras", slug: "white-blue"
+deck_wu = Deck.find_or_create_by_slug category: "A", title: "White and blue: Auras", slug: "white-blue"
 
 # Blue/Green
 
-Deck.find_or_create_by_slug category: "a", title: "Blue and green: Tempo", slug: "blue-green"
+deck_ug = Deck.find_or_create_by_slug category: "A", title: "Blue and green: Tempo", slug: "blue-green"
 
 # Black/White
 
-Deck.find_or_create_by_slug category: "a", title: "Black and white: Attrition", slug: "black-white"
+deck_bw = Deck.find_or_create_by_slug category: "A", title: "Black and white: Attrition", slug: "black-white"
 
 # Red/Black
 
-Deck.find_or_create_by_slug category: "a", title: "Red and black: Goblins", slug: "red-black"
+deck_rb = Deck.find_or_create_by_slug category: "A", title: "Red and black: Goblins", slug: "red-black"
 
 # Red/Green
 
-Deck.find_or_create_by_slug category: "a", title: "Green and red: Ramp", slug: "green-red"
+deck_rg = Deck.find_or_create_by_slug category: "A", title: "Green and red: Ramp", slug: "green-red"
