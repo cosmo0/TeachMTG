@@ -15,4 +15,8 @@ class DecksController < ApplicationController
     @deck = Deck.find(params[:id])
   end
 
+  def update
+    #@deck = params[:deck]
+  end
+
 end

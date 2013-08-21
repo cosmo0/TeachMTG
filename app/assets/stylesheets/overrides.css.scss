@@ -20,3 +20,17 @@ body { padding-top: 60px; }
   margin-top: 45px;
   @include box_sizing;
 }
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}

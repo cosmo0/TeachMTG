@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :deck do
-    title    "Blue: Test"
-    slug     "blue-test"
+    title    "This is a test deck"
+    slug     "test-deck"
     category "B"
   end
 end

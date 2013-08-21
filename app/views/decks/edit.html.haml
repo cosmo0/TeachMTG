@@ -4,3 +4,23 @@
   Edit deck:
   = @deck.title
 
+.span6
+  = form_for @deck, html: { class: "form-horizontal" } do |f|
+    .control-group
+      = f.label :title, class: "control-label"
+      .controls
+        = f.text_field :title
+
+    .control-group
+      = f.label :slug, class: "control-label"
+      .controls
+        = f.text_field :slug
+
+    .control-group
+      = f.label :category, class: "control-label"
+      .controls
+        = f.text_field :category
+
+    .control-group
+      .controls
+        = f.submit "Edit", class: "btn btn-primary"
