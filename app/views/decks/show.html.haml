@@ -11,5 +11,10 @@
 %h2 Deck list
 
 .decklist
-  / TODO: display decklist
+  - @deck.cards.each do |c|
+    .card
+      = c.quantity
+      x
+      = c.name
 
+= link_to "Edit this deck", edit_deck_path(@deck), class: "btn btn-warning"

@@ -1,7 +1,9 @@
 class Deck < ActiveRecord::Base
   extend FriendlyId
 
-  attr_accessible :category, :slug, :title
+  has_many :cards
+
+  attr_accessible :category, :slug, :title, :cards
 
   friendly_id :slug
 
