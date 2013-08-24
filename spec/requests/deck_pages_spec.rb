@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "Deck Pages" do
+describe "Deck" do
 
   subject { page }
 
-  describe "Deck modifications page" do
+  describe "modifications page" do
     let(:deck) { FactoryGirl.create(:deck) }
     
     before { visit edit_deck_path(deck) }
@@ -13,9 +13,9 @@ describe "Deck Pages" do
     it { should have_selector('title', text: deck.title) }
   end
 
-  describe "Deck modifications execution" do
+  describe "modifications execution" do
     let(:deck) { FactoryGirl.create(:deck) }
-    let(:initial_deck) { :deck }
+    let(:initial_deck) { deck }
   
     before { visit edit_deck_path(deck) }
 
@@ -27,25 +27,25 @@ describe "Deck Pages" do
       end
       it "should not modify the deck" do
         expect { click_button "Edit" }.not_to change(Deck, :count)
-        expect(:initial_deck).to eq :deck
+        expect(initial_deck).to eq deck
       end
     end
 
     describe "with valid informations" do
       before do
-        fill_in "Title", with: "My awesome deck"
+        fill_in "Title", with: "My awesome modified deck"
         fill_in "Slug", with: "awesome-deck"
         fill_in "Category", with: "a"
       end
       it "should modify the deck" do
         expect { click_button "Edit" }.not_to change(Deck, :count)
-        expect(:initial_deck).not_to eq :deck
+        expect(initial_deck).not_to eq deck
       end
     end
 
   end
 
-  describe "Deck details" do
+  describe "details" do
     let(:deck) { FactoryGirl.create(:deck) }
 
     before { visit deck_path(deck) }
