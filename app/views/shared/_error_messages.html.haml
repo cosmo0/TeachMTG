@@ -1,0 +1,14 @@
+- if @deck.present? && @deck.errors.any?
+  #error_explanation
+    .alert.alert-error.alert-block
+      %button{ type: "button", class: "close", "data-dismiss" => "alert" }
+        &times;
+
+      %h4
+        The form contains
+        = pluralize(@deck.errors.count, "error")
+
+      %ul
+        - @deck.errors.full_messages.each do |msg|
+          %li
+            = msg
