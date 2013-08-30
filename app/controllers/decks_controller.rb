@@ -16,13 +16,13 @@ class DecksController < ApplicationController
   end
 
   def update
-    d = Deck.find(params[:id])
-    d.title = params[:deck][:title]
-    d.slug = params[:deck][:slug]
-    d.category = params[:deck][:category]
+    @deck = Deck.find(params[:id])
+    @deck.title = params[:deck][:title]
+    @deck.slug = params[:deck][:slug]
+    @deck.category = params[:deck][:category]
 
-    if d.save
-      redirect_to deck_path(d), notice: "Deck saved successfully"
+    if @deck.save
+      redirect_to deck_path(@deck), notice: "Deck saved successfully"
     else
       render :edit
     end

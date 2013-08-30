@@ -25,9 +25,10 @@ describe "Deck" do
         fill_in "Slug", with: ""
         fill_in "Category", with: ""
       end
-      it "should not modify the deck" do
-        expect { click_button "Edit" }.not_to change(Deck, :count)
-        expect(initial_deck).to eq deck
+      describe "should not modify the deck" do
+        subject { -> { click_button "Edit" } }
+        it { should_not change(Deck, :count) }
+        # TODO: test the equity between deck and initial_deck
       end
     end
 
@@ -35,11 +36,12 @@ describe "Deck" do
       before do
         fill_in "Title", with: "My awesome modified deck"
         fill_in "Slug", with: "awesome-deck"
-        fill_in "Category", with: "a"
+        fill_in "Category", with: "A"
       end
-      it "should modify the deck" do
-        expect { click_button "Edit" }.not_to change(Deck, :count)
-        expect(initial_deck).not_to eq deck
+      describe "should modify the deck" do
+        subject { -> { click_button "Edit" } }
+        it { should_not change(Deck, :count) }
+        # TODO: test the non-equity between deck and initial_deck
       end
     end
 
