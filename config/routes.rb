@@ -1,5 +1,7 @@
 TeachmtgCom::Application.routes.draw do
 
+  devise_for :users
+
   get "decks/new"
   
   resources :decks

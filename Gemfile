@@ -6,14 +6,15 @@ gem 'rails', '3.2.13'
 
 gem 'haml'
 gem 'bluecloth'
-gem "friendly_id", "~> 4.0.9"
+gem 'friendly_id', '~> 4.0.9'
+gem 'devise'
+gem 'omniauth-google-oauth2'
+gem 'pg', '0.12.2'
 
 group :development do
   gem 'haml-rails'
   gem 'hpricot'
   gem 'html2haml'
-
-  gem 'pg', '0.12.2'
 
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'
@@ -27,7 +28,6 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
-
   gem 'bootstrap-sass', '~> 2.3.2.1'
 end
 
@@ -57,8 +57,10 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
   gem 'unicorn'
+
+  # Heroku
+  gem 'newrelic_rpm'
 end
 
 gem 'jquery-rails', '2.0.2'
