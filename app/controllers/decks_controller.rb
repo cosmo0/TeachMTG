@@ -13,6 +13,10 @@ class DecksController < ApplicationController
 
   def edit
     @deck = Deck.find(params[:id])
+
+    if !view_context.user_is_admin
+      redirect_to @deck, notice: "Please use an admin account to edit"
+    end
   end
 
   def update
@@ -26,7 +30,6 @@ class DecksController < ApplicationController
     else
       render :edit
     end
-
   end
 
 end

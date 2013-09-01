@@ -34,3 +34,9 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+#error_explanation, .error_explanation {
+  color: red;
+}
+#error_explanation h2, .error_explanation h2 {
+  font-size: 14px;
+}

@@ -1,6 +1,6 @@
 TeachmtgCom::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   get "decks/new"
   

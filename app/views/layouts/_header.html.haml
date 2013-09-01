@@ -1,16 +1,13 @@
 %header.navbar.navbar-fixed-top
 	.navbar-inner
 		.container-fluid
-			%button.btn.btn-navbar{ type: "button", "data-toggle" => "collapse", "data-target" => ".nav-collapse" }
-				%span.icon-bar
-				%span.icon-bar
-				%span.icon-bar
 			%a.brand{ href: "/" }
 				Teach MTG
 			.nav-collapse.collapse
 				%ul.nav
-					%li
-						= link_to "Home", home_path
+
+					%li.divider-vertical
+
 					%li.dropdown
 						%a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" }
 							What and how to teach <b class="caret"></b>
@@ -23,6 +20,7 @@
 								= link_to "Philosophies", philosophies_path
 							%li
 								= link_to "Rules", rules_path
+
 					%li.dropdown
 						%a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" }
 							Simple &amp; cheap decks <b class="caret"></b>
@@ -33,7 +31,19 @@
 								= link_to "Beginners", beginners_path
 							%li
 								= link_to "Advanced", advanced_path
+
 					%li
 						= link_to "Drafting", drafting_path
+
+					%li.divider-vertical
+
 					%li
 						= link_to "Resources", resources_path
+
+				%ul.nav.pull-right
+					- if !current_user
+						%li
+							= link_to "Login", user_omniauth_authorize_path(:google_oauth2)
+					- else
+						%li
+							= link_to "Log out", destroy_user_session_path, method: :delete, title: current_user.email
