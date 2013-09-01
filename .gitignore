@@ -23,6 +23,9 @@
 # secret key
 /.secret
 
+# foreman local config
+/.foreman
+
 # Compiled source #
 ###################
 *.com

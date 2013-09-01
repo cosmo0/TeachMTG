@@ -12,8 +12,9 @@ gem 'omniauth-google-oauth2'
 gem 'pg', '0.12.2'
 
 group :development do
+  gem 'foreman'
+
   gem 'haml-rails'
-  gem 'hpricot'
   gem 'html2haml'
 
   gem 'rspec-rails', '2.11.0'
