@@ -22,7 +22,7 @@ class DecksController < ApplicationController
     @deck.category = params[:deck][:category]
 
     if @deck.save
-      redirect_to deck_path(@deck), notice: "Deck saved successfully"
+      redirect_to @deck, notice: "Deck saved successfully"
     else
       render :edit
     end
