@@ -41,7 +41,11 @@
 
       <%= render 'layouts/footer' %>
 
-      <%= debug(params) if Rails.env.development? %>
+      <% if Rails.env.development? %>
+        <%= debug(params) %>
+        <hr>
+        <a href="/rails/routes">View routes</a>
+      <% end %>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
