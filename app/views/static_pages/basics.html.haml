@@ -5,18 +5,18 @@
         %ul.nav.nav-list.well
             %li.nav-header Introduction
             %li
-                %a{ href: '#' } What is this game about?
+                %a{ href: '#about' } What is this game about?
             %li
-                %a{ href: '#' } The game zones
+                %a{ href: '#zones' } The game zones
             %li
-                %a{ href: '#' } The colors
+                %a{ href: '#colors' } The colors
             %li
-                %a{ href: '#' } The card types
+                %a{ href: '#cards' } The card types
             %li.nav-header How to play
             %li
-                %a{ href: '#' } The game steps
+                %a{ href: '#steps' } The game steps
             %li
-                %a{ href: '#' } A typical turn
+                %a{ href: '#turn' } A typical turn
 
     .span9
         %h1 Basic rules of Magic: the Gathering
@@ -26,7 +26,7 @@
             %em rules
             of the game.
 
-        %h3 What is this game about?
+        %h3#about What is this game about?
 
         %p Yeah, let's not forget that, it's quite important! Say something along these lines:
         
@@ -37,38 +37,87 @@
                 We fight through the means of spells, and the summoning of creatures.<br />
                 Mana is what powers our spells and allows us to summon the creatures.
         
-        %h3 The game zones
+        %h3#zones The game zones
         
         %p What is going on with all these piles?
         
         %ul
-            %li The library
-            %li The hand
-            %li The battlefield
-            %li The graveyard
-            %li The exile zone: it will not come up in the beginners decks, so you can skip it for now.
+            %li The library: it's the memory. Where the spells are located. What I can draw.
+            %li The hand: it's the mind. What I'm thinking about. What I can cast now.
+            %li The battlefield: it's where the action is. It's where the permanents end up. It's where the creatures fight each other.
+            %li The graveyard: it's where a creature goes when it dies, and where a spell ends up when it's done.
+
+        %p Additionnaly, there are two zones that end up mattering rarely.
         
-        %h3 The colors
+        %ul
+            %li The exile zone: when a card goes there, it's never reachable again (except if it says that it comes back).
+            %li The stack: it's where a spell goes while it's cast.
+        
+        %h3#colors The colors
         
         %p
-            Cards have color. The game have 5 colors: White, Blue, Black, Red, Green. You can
-            play any number of color in your deck as you want, but the mana used to cast spells
-            have a color, so the more colors you have in your deck, the hardest it is to cast
-            your spells.
+            Cards have color. The game have 5 colors: White, Blue, Black, Red,
+            Green.<br/>
+            You can play any number of color in your deck as you want, but the
+            mana used to cast spells have a color too, so the more colors
+            you have in your deck, the hardest it is to cast your spells.
 
         %p
-            While you're at it, consider this an opportunity to talk about color philosophy.
-            In addition to the rules, I mean. It can help many people to get engaged in the
-            game.
+            While you're at it, consider this an opportunity to talk about
+            color philosophy. In addition to the rules, I mean. It can help
+            many people to get engaged in the game.
 
         %ul
-            %li White is the color of order, protection, law.
-            %li Blue is the color of intellect, knowledge, rationality.
-            %li Black is the color of selfishness.
-            %li Red is the color of emotions, chaos.
-            %li Green is the color of nature, growth.
+            %li
+                %a{ href:'http://www.wizards.com/Magic/Magazine/Article.aspx?x=mtgcom/daily/mr57' } White:
+                harmony, order, protection, law, community, peace, structure, law, purity, religion, honor, politics, medicine...
+            %li
+                %a{ href: 'http://www.wizards.com/Magic/Magazine/Article.aspx?x=mtgcom/daily/mr84' } Blue:
+                intellect, knowledge, rationality, creativity, subtlety, artifice, illusion, trickery, control...
+            %li
+                %a{ href: 'http://www.wizards.com/Magic/Magazine/Article.aspx?x=mtgcom/daily/mr109' } Black:
+                death, individualism, corruption, fear, amorality, execution, decay, deceit, manipulation..
+            %li
+                %a{ href: 'http://www.wizards.com/Magic/Magazine/Article.aspx?x=mtgcom/daily/mr133' } Red:
+                emotions, impulse, chaos, violence, brutality, destruction, fire, military, randomness, short-term thinking...
+            %li
+                %a{ href: 'http://www.wizards.com/Magic/Magazine/Article.aspx?x=mtgcom/daily/mr43' } Green:
+                life, nature, growth, reality, community, spiritualism, instinct, animals...
+
+
+        %p These colors are represented on the back of Magic cards. They are "allied" with their neighbors, and "ennemies" with the others. The relationships are the following.
+
+        %ul
+            %li White and Blue: restraint, planning, discipline, rules.
+            %li Blue and Black: see the reality for what it is, and not what they wish.
+            %li Black and Red: not afraid to act for their own interest, and do what they want.
+            %li Red and Green: driven by instinct, and destructive element.
+            %li Green and White: like the group, love the life.
+            %li White vs Black: morality vs amorality, individual vs group.
+            %li Black vs Green: life vs death.
+            %li Green vs Blue: nature vs technology, intellect vs instinct.
+            %li Blue vs Red: rationality vs emotion, construction vs destruction.
+            %li Red vs White: order vs chaos.
+
+        %p These philosophies translate into mechanical identities.
         
-        %h3 The card types
+        %ul
+            %li White: life gain, damage prevention, two-sided "reset buttons", attackers removal, protection, enchantment removal, defensive enchantments, taxing (pay more to do what you want). White also cares about equipments (for its soldiers).
+            %li Blue: counterspells, bounces, manipulation, mind control, invisibility, flying. Blue also has synergy with artifacts.
+            %li Black: discard, life drain, creature destruction. Black can do almost anything at a price (often paying life or sacrificing creatures).
+            %li Red: direct damange (fireballs), artifact and land destruction, quickness, fast mana, randomness, temporary manipulation... Red is the color that needs to win fast, or not at all.
+            %li Green: growth in creatures and lands, big creatures, artifact destruction, life gain, creatures fight. Many of Green's effects come from its creatures.
+
+        %p Finally, the colors each have representative creatures.
+        
+        %ul
+            %li White: Cats and Dogs, Kors, Knights, Soldiers, Birds, most Humans, and Angels.
+            %li Blue: Merfolks, Vedalken, Sea monsters, Faeries, Illusions, Shapeshifters, and Sphinxes.
+            %li Black: Vampires, Zombies, Skeletons, Bats, Shades, Rats, Specters, and Demons.
+            %li Red: Goblins, Elementals, Ogres, Giants, Phoenixes, and Dragons.
+            %li Green: Elves, Insects, Centaurs, Spiders, Wild Beasts, Wurms, and Hydras.
+
+        %h3#types The card types
 
         %p
             So many card types to learn! We'll stick to the basics for now and, at least in
@@ -81,8 +130,8 @@
             stays on the battlefield until it's destroyed, killed, sacrificed, etc.
         
         %ul
-            %li Lands: every deck has lands. They provide mana, which allows us to cast spells.
-            %li Creatures: these are the meat of the game. Attack with them, defend with them.
+            %li Lands: every deck has lands. They provide mana, which allows us to cast spells. No land = no mana = no spell.
+            %li Creatures: these are the meat of the game. Attack with them, defend with them. Creatureless decks are possible, though.
             %li
                 Sorceries and instants: they are cast, and immediately sent to the graveyard. The
                 only difference between them is that sorceries can only be played at certain times,
@@ -90,13 +139,13 @@
             %li
                 Enchantments: they are magical, continuous effects. There are two types of enchantments:
                 %ul
-                    %li Global enchantments
-                    %li Auras
+                    %li Global enchantments: they have an global effect on the game. Either they help you, or they hinder your opponent.
+                    %li Auras: they have a local effect; for instance, they boost a creature.
             %li
                 Artifacts: they are objects of power. They are most often colorless, and many of
-                them are equipments, which attach to creatures, a bit like auras, to give them boosts
+                them are equipments, which attach to creatures (a bit like auras), to give them boosts
                 and abilities.
-            %li Planeswalkers: they will not appear in the beginners decks, so you can skip them.
+            %li Planeswalkers: they are powerful allies who help you. They will not appear in the beginners decks, so you can skip them.
 
         %p
             Here you can specify that almost every card type can mix with another one, the most
@@ -104,27 +153,27 @@
 
         %h3 How to play
 
-        %h4 The game steps
+        %h4#steps The game steps
+
+        %p The game has very organized steps. They help the game to be about strategy, and not reflex.
 
         %ol
-            %li Untap: every permanent you control untaps
-            %li
-                Upkeep: just say it's just here so some things can happen at the beginning of the
-                turn, before a player draws.
-            %li Draw a card
-            %li Pre-combat main phase
+            %li Untap: every permanent you control untaps.
+            %li Upkeep: sometimes stuff happens there. For instance, you might need to pay a tax.
+            %li Draw a card.
+            %li Pre-combat main phase: play lands, spells, creatures...
             %li
                 Combat phase
                 %ol
-                    %li Begin combat
-                    %li Declare attackers
-                    %li Declare blockers
-                    %li Damage
-                    %li End phase
-            %li Post-combat main phase
-            %li End of turn
+                    %li Begin combat: the opponent can react before you declare your attackers.
+                    %li Declare attackers: you declare which creatures attack, and then the opponent can react (and you can react to the reaction).
+                    %li Declare blockers: the opponent declares which creatures block which one, and then everybody can react.
+                    %li Damage: first, the first-strike creatures deal damange. Once this is done, the remaining (and still standing) creatures deal their own.
+                    %li End phase: it's possible (even though it's rare) to react at this stage.
+            %li Post-combat main phase: play lands, spells, creatures...
+            %li End of turn: the opponent can do stuff at the end of the turn, before untapping at the beginning of his own.
 
-        %h4 A typical turn
+        %h4#turn A typical turn
         
         %hr
 
