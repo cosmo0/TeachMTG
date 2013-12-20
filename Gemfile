@@ -39,13 +39,13 @@ group :test do
   gem 'factory_girl_rails',   '~> 4.2.1'
 
   # test gems on OSX
-  #gem 'rb-fsevent',          '0.9.1', :require => false
-  #gem 'growl',               '1.0.3'
+  gem 'rb-fsevent',          '0.9.3', :require => false
+  gem 'growl',               '1.0.3'
 
   # test gems on Linux
-  gem 'rb-inotify',           '~> 0.9.0'
-  gem 'libnotify',            '~> 0.8.1'
-  gem 'ffi',                  '~> 1.9.0'
+  #gem 'rb-inotify',           '~> 0.9.0'
+  #gem 'libnotify',            '~> 0.8.1'
+  #gem 'ffi',                  '~> 1.9.0'
 
   # test gems on Windows
   #gem 'wdm',                 '0.1.0'
