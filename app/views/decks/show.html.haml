@@ -11,10 +11,9 @@
 %h2 Deck list
 
 .decklist
-  - @deck.cards.each do |c|
+  - @deck.cards.order(:name).each do |c|
     .card
-      = c.quantity
-      x
+      = "#{c.quantity}x"
       = c.name
 
 - if user_is_admin

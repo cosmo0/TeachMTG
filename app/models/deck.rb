@@ -28,7 +28,7 @@ class Deck < ActiveRecord::Base
   # list of cards for text areas
   def decklist
     list = ""
-    self.cards.each do |c|
+    self.cards.order(:name).each do |c|
       list += "#{c.quantity}x #{c.name}\n"
     end
     return list
@@ -42,7 +42,7 @@ class Deck < ActiveRecord::Base
       # then, let's find all the cards in the decklist field
       value.split("\n").each do |c|
         number = @@decklist_regexp.match(c)[1].to_i
-        card_name = @@decklist_regexp.match(c)[2].to_s
+        card_name = @@decklist_regexp.match(c)[2].to_s.titleize
         card_type = CardType.find_by_name "Undefined" # TODO: find the card type by going through online tools like magiccards.info
         new_card = Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
       end
