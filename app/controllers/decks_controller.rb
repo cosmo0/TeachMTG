@@ -24,6 +24,7 @@ class DecksController < ApplicationController
     @deck.title = params[:deck][:title]
     @deck.slug = params[:deck][:slug]
     @deck.category = params[:deck][:category]
+    @deck.decklist = params[:deck][:decklist]
 
     if @deck.save
       redirect_to @deck, notice: "Deck saved successfully"

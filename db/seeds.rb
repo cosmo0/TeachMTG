@@ -8,6 +8,7 @@
 
 ##### Initialize card types
 
+type_undefined = CardType.find_or_create_by_name "Undefined"
 type_creature = CardType.find_or_create_by_name "Creature"
 type_land = CardType.find_or_create_by_name "Land"
 type_enchantment = CardType.find_or_create_by_name "Enchantment"

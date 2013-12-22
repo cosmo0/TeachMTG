@@ -4,7 +4,6 @@ class Deck < ActiveRecord::Base
   has_many :cards
 
   attr_accessible :category, :slug, :title, :cards
-  attr_accessor :decklist
 
   friendly_id :slug
 
@@ -19,10 +18,11 @@ class Deck < ActiveRecord::Base
   validates :category,  presence: true,
                         format: { with: /[A|B]/ }
 
+  @@decklist_regexp = /^([\d]+)[x]?[\s]+([\w\s]+)$/im
+
   before_save do
     self.slug.downcase!
     self.category.upcase!
-    # set_decklist
   end
 
   # list of cards for text areas
@@ -31,29 +31,23 @@ class Deck < ActiveRecord::Base
     self.cards.each do |c|
       list += "#{c.quantity}x #{c.name}\n"
     end
-    logger.debug("DECKLIST READER " + list)
-    @decklist = list
-    list
+    return list
   end
 
   # Saves the decklist as Cards model
   def decklist=(value)
-    logger.debug("DECKLIST WRITER " + value)
-    @decklist = value
-    list = Array.new
-    value.split(" ").each do |c|
-      list << c
+    Deck.transaction do
+      # first, let's empty the cards of the deck
+      self.cards.clear
+      # then, let's find all the cards in the decklist field
+      value.split("\n").each do |c|
+        number = @@decklist_regexp.match(c)[1].to_i
+        card_name = @@decklist_regexp.match(c)[2].to_s
+        card_type = CardType.find_by_name "Undefined" # TODO: find the card type by going through online tools like magiccards.info
+        new_card = Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
+      end
+      self.save
     end
   end
-
-  # def set_decklist
-  #   logger.debug("DECKLIST SET " + self.decklist)
-  #   self.cards.build unless self.cards.present?
-  #   list = self.decklist.split('\n')
-  #   list.each do |item|
-  #     # card = item.split('x ')
-  #     # self.cards.create(name: card.last, quantity: card.first)
-  #   end
-  # end
 
 end
