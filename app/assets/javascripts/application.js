@@ -45,7 +45,7 @@ $(function() {
         var preview = $('<div id="cardImage"></div>').text("Loading card...");
         caller.parents(".card").append(preview);
         // AJAX loading of the card image
-        var imgUrl = caller.attr("href") + ' img[src^="http://magiccards.info/scans/"]';
+        var imgUrl = "/decks/get_image?card=" + encodeURIComponent(caller.data("name"));
         console.log(imgUrl);
         preview.load(imgUrl);
     }, function() {

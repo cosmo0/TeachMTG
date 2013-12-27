@@ -13,7 +13,7 @@
       - @deck.cards.order(:name).each do |c|
         .card
           = "#{c.quantity}x"
-          %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank" }
+          %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank", data: { name: c.name } }
             = c.name
 
     - if user_is_admin

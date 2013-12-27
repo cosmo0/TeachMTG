@@ -3,7 +3,8 @@ TeachmtgCom::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   get "decks/new"
-  
+  get "decks/get_image"
+
   resources :decks
 
   # home
