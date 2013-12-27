@@ -1,4 +1,5 @@
 class DecksController < ApplicationController
+  include DecksHelper
 
   # displays a deck
   def show
@@ -38,23 +39,13 @@ class DecksController < ApplicationController
 
   # gets the source image from magiccard.info
   def get_image
-    require 'open-uri'
-    require 'uri'
-
-    # builds URL
-    card_name = URI.encode(params[:card])
-    url = "http://magiccards.info/query?q=!#{card_name}&v=card&s=cname"
-    puts url
-
-    # get data
-    data = Nokogiri::HTML(open(url))
-    image_url = data.css('img[src^="http://magiccards.info/scans/"]')[0]
-    image_url.remove_attribute("width")
-    image_url.remove_attribute("height")
-    image_url.remove_attribute("style")
+    card_data = get_card_infos(params[:card]).css('img[src^="http://magiccards.info/scans/"]')[0]
+    card_data.remove_attribute("width")
+    card_data.remove_attribute("height")
+    card_data.remove_attribute("style")
 
     # write results
-    @result_image = image_url.to_s.html_safe
+    @result_image = card_data.to_s.html_safe
     render layout: false
   end
 

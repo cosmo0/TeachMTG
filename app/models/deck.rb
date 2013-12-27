@@ -43,8 +43,11 @@ class Deck < ActiveRecord::Base
       value.split("\n").each do |c|
         number = @@decklist_regexp.match(c)[1].to_i
         card_name = @@decklist_regexp.match(c)[2].to_s.titleize
+        
+        # get the card type through magiccards.info
         card_type = CardType.find_by_name "Undefined" # TODO: find the card type by going through online tools like magiccards.info
-        new_card = Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
+        
+        Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
       end
       self.save
     end
