@@ -48,10 +48,13 @@ class DecksController < ApplicationController
 
     # get data
     data = Nokogiri::HTML(open(url))
-    image_url = data.css('img[src^="http://magiccards.info/scans/"]')
+    image_url = data.css('img[src^="http://magiccards.info/scans/"]')[0]
+    image_url.remove_attribute("width")
+    image_url.remove_attribute("height")
+    image_url.remove_attribute("style")
 
     # write results
-    @result_image = image_url[0].to_s.html_safe
+    @result_image = image_url.to_s.html_safe
     render layout: false
   end
 
