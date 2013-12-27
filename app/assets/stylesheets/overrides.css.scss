@@ -37,3 +37,11 @@ input {
 #error_explanation h2, .error_explanation h2 {
   font-size: 14px;
 }
+
+/* Decklists */
+
+#cardImage {
+  display: none;
+  z-index:500;
+  position:absolute;
+}

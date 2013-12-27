@@ -5,8 +5,8 @@
 %p
   Each beginner deck has only one color.
 
-%ul.decks
+%ul.thumbnails
   - @decks.each do |d|
-    %li
-      %a{ href: deck_path(d) }
-        =d.title
+    %li.span2
+      %a.thumbnail{ href: deck_path(d) }
+        %img{ src: "http://placehold.it/160x120&text=" + d.title }
