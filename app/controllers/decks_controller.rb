@@ -39,10 +39,7 @@ class DecksController < ApplicationController
 
   # gets the source image from magiccard.info
   def get_image
-    card_data = get_card_infos(params[:card]).css('img[src^="http://magiccards.info/scans/"]')[0]
-    card_data.remove_attribute("width")
-    card_data.remove_attribute("height")
-    card_data.remove_attribute("style")
+    card_data = get_card_image(params[:card])
 
     # write results
     @result_image = card_data.to_s.html_safe
