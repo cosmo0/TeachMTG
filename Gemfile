@@ -13,6 +13,7 @@ gem 'pg',                     '~> 0.12.2'
 gem 'bootstrap-sass',         '~> 2.3.2'
 gem 'bootswatch-rails',       '~> 0.5.0'
 gem 'jquery-rails',           '~> 2.0.2'
+gem 'nokogiri',               '~> 1.6.1'
 
 group :development do
   gem 'foreman',              '~> 0.63.0'

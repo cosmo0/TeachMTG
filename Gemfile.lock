@@ -285,6 +285,7 @@ DEPENDENCIES
   html2haml (~> 1.0.1)
   jquery-rails (~> 2.0.2)
   newrelic_rpm
+  nokogiri (~> 1.6.1)
   omniauth-google-oauth2 (~> 0.2.1)
   pg (~> 0.12.2)
   rails (= 3.2.13)
