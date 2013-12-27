@@ -11,6 +11,7 @@ gem 'devise',                 '~> 3.0.3'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 gem 'pg',                     '~> 0.12.2'
 gem 'bootstrap-sass',         '~> 2.3.2'
+gem 'bootswatch-rails',       '~> 0.5.0'
 gem 'jquery-rails',           '~> 2.0.2'
 
 group :development do
