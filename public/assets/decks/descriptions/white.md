@@ -1,5 +1,5 @@
 
-### Deck description
+### How does this deck works ?
 
 White weenie deck with auras.
 

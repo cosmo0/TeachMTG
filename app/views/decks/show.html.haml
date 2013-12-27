@@ -3,18 +3,24 @@
 %h1
   = @deck.title
 
-%h2 Deck description
+.row-fluid
 
-.description
-  = @deck_description
+  .span4
 
-%h2 Deck list
+    %h2 Deck list
 
-.decklist
-  - @deck.cards.order(:name).each do |c|
-    .card
-      = "#{c.quantity}x"
-      = c.name
+    .decklist
+      - @deck.cards.order(:name).each do |c|
+        .card
+          = "#{c.quantity}x"
+          = c.name
 
-- if user_is_admin
-  = link_to "Edit this deck", edit_deck_path(@deck), class: "btn btn-warning"
+    - if user_is_admin
+      = link_to "Edit this deck", edit_deck_path(@deck), class: "btn btn-warning"
+
+  .span8
+
+    %h2 Deck description
+
+    .description
+      = @deck_description
