@@ -1,4 +1,5 @@
 class Deck < ActiveRecord::Base
+  include DecksHelper
   extend FriendlyId
 
   has_many :cards
@@ -34,7 +35,7 @@ class Deck < ActiveRecord::Base
     return list
   end
 
-  # Saves the decklist as Cards model
+  # Saves the raw decklist as Cards model collection
   def decklist=(value)
     Deck.transaction do
       # first, let's empty the cards of the deck
@@ -44,8 +45,9 @@ class Deck < ActiveRecord::Base
         number = @@decklist_regexp.match(c)[1].to_i
         card_name = @@decklist_regexp.match(c)[2].to_s.titleize
         
-        # get the card type through magiccards.info
-        card_type = CardType.find_by_name "Undefined" # TODO: find the card type by going through online tools like magiccards.info
+        # get the card type through gatherer
+        card_type = CardType.find_by_name "Undefined"
+        #card_type = CardType.find_by_name(get_card_type(card_name)) # FIXME: finish the get_card_type method so it works with multiple results
         
         Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
       end
