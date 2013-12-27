@@ -36,3 +36,20 @@
         }
     }
 }());
+
+// loads a card image on mouse over
+$(function() {
+    $(".decklist .card a").hover(function() {
+        var caller = $(this);
+        // create a HTML element within the .card caller element
+        var preview = $('<div id="cardImage"></div>').text("Loading card...");
+        caller.parents(".card").append(preview);
+        // AJAX loading of the card image
+        var imgUrl = caller.attr("href") + ' img[src^="http://magiccards.info/scans/"]';
+        console.log(imgUrl);
+        preview.load(imgUrl);
+    }, function() {
+        // destroys the created HTML element
+        $("#cardImage").remove();
+    });
+})
