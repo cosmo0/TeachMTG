@@ -18,7 +18,7 @@ class Deck < ActiveRecord::Base
   validates :category,  presence: true,
                         format: { with: /[A|B]/ }
 
-  @@decklist_regexp = /^([\d]+)[x]?[\s]+([\w\s'-]+)$/im
+  @@decklist_regexp = /^([\d]+)[x]?[\s]+([\w\s'-,]+)$/im
 
   before_save do
     self.slug.downcase!
