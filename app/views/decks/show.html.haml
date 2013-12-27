@@ -13,7 +13,8 @@
       - @deck.cards.order(:name).each do |c|
         .card
           = "#{c.quantity}x"
-          = c.name
+          %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank" }
+            = c.name
 
     - if user_is_admin
       = link_to "Edit this deck", edit_deck_path(@deck), class: "btn btn-warning"
