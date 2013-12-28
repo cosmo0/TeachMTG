@@ -40,17 +40,16 @@ class Deck < ActiveRecord::Base
     Deck.transaction do
       # first, let's empty the cards of the deck
       self.cards.clear
-      # then, let's find all the cards in the decklist field
+      # then, let's find all the cards in the :decklist field
       value.split("\n").each do |c|
         if !c.empty?
-          #puts "Searching through #{c}"
           number = @@decklist_regexp.match(c)[1].to_i
           card_name = @@decklist_regexp.match(c)[2].to_s.humanize
-          #puts "Found #{number} of #{card_name}"
           
-          # get the card type through gatherer
-          #card_type = CardType.find_by_name "Undefined"
-          card_type = CardType.find_by_name(get_card_type(card_name))
+          # get the card infos
+          card_infos = get_card_infos(card_name)
+          puts "Card infos : #{card_infos}"
+          card_type = CardType.find_by_name(card_infos[:type])
           
           Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
         end

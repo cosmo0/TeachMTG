@@ -13,7 +13,7 @@ module DecksHelper
 
   # get the card's image tag
   def get_card_image(card_name)
-    data = get_card_infos(card_name)
+    data = get_card_data(card_name)
     image_tag = data.css('img[src^="http://magiccards.info/scans/"]')[0]
     image_tag.remove_attribute("width")
     image_tag.remove_attribute("height")
@@ -22,26 +22,29 @@ module DecksHelper
   end
 
   # get the card's type(s)
-  def get_card_type(card_name)
+  def get_card_infos(card_name)
     #puts "Getting card type for #{card_name}"
-    data = get_card_infos(card_name)
+    data = get_card_data(card_name)
     # card type is "Types — subtypes, mana cost" just before the rules text
+    card_infos = data.css('p.ctext')[0].previous_element.content.to_s
+
     # Attention, the "-" separator is not a standard dash !
-    type_text = data.css('p.ctext')[0].previous_element.content.to_s.split(",")[0].split("—")[0]
+    type_text = card_infos.split(",")[0].split("—")[0]
     type_text.strip!
     type_text.gsub!('Legendary ', '')
     type_text.gsub!('Basic ', '')
     type_text.gsub!('Snow ', '')
     type_text.gsub!('World ', '')
-    #puts "Card types found : #{type_text}"
 
-    return type_text
+    # card mana cost
+
+    return { name: card_name, type: type_text }
   end
 
   private
 
     # get all card infos
-    def get_card_infos(card_name)
+    def get_card_data(card_name)
       require 'open-uri'
       require 'uri'
       card_name = URI.encode(card_name)

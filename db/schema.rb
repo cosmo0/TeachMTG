@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130901183143) do
+ActiveRecord::Schema.define(:version => 20131228153412) do
 
   create_table "card_categories", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20130901183143) do
     t.integer  "card_type_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "cmc"
+    t.string   "cost"
   end
 
   add_index "cards", ["card_type_id"], :name => "index_cards_on_card_type_id"
