@@ -42,7 +42,7 @@ module DecksHelper
     cmc = 0
     if card_infos.count(',') > 0
       cost_text = card_infos.split(",")[1]
-      cost_regexp = /([\d\w]+) \(([\d]+)\)/i # cost under the form: XY (Z), XY being the cost and Z being the CMC
+      cost_regexp = /([\d\w\\\{\}]+) \(([\d]+)\)/i # cost under the form: XY (Z), XY being the cost and Z being the CMC
       cost = cost_regexp.match(cost_text)[1].to_s
       cmc = cost_regexp.match(cost_text)[2].to_i
     end
