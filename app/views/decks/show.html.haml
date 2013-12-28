@@ -5,23 +5,27 @@
 
 .row-fluid
 
-  .span3
+  .span4
 
     %h2 Deck list
 
-    .decklist
-      - @deck.cards.order(:name).each do |c|
-        .card
-          = "#{c.quantity}x"
-          %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank", data: { name: c.name } }
-            = c.name
-          %span.type
-            = c.card_type.name
+    .decklist.row-fluid
+      - @types.each do |t|
+        - if @deck.cards.joins(:card_type).where(card_types: { name: t.name }).any? # do not display card type if there aren't any card of this type
+          .type
+            %h3
+              = t.name.pluralize
+            / get all cards of this type for this deck
+            - @deck.cards.joins(:card_type).where(card_types: { name: t.name }).order(:name).each do |c|
+              .card
+                = "#{c.quantity}x"
+                %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank", data: { name: c.name } }
+                  = c.name
 
     - if user_is_admin
       = link_to "Edit this deck", edit_deck_path(@deck), class: "btn btn-warning"
 
-  .span9
+  .span8
 
     %h2 Deck description
 
