@@ -19,7 +19,7 @@ class Deck < ActiveRecord::Base
   validates :category,  presence: true,
                         format: { with: /[A|B]/ }
 
-  @@decklist_regexp = /^([\d]+)[x]?[\s]+([\w\s'-,]+)$/im
+  @@decklist_regexp = /^([\d]+)[x]?[\s]+([\w\s\-',]+)$/im
 
   before_save do
     self.slug.downcase!
@@ -42,14 +42,18 @@ class Deck < ActiveRecord::Base
       self.cards.clear
       # then, let's find all the cards in the decklist field
       value.split("\n").each do |c|
-        number = @@decklist_regexp.match(c)[1].to_i
-        card_name = @@decklist_regexp.match(c)[2].to_s.titleize
-        
-        # get the card type through gatherer
-        card_type = CardType.find_by_name "Undefined"
-        #card_type = CardType.find_by_name(get_card_type(card_name)) # FIXME: finish the get_card_type method so it works with multiple results
-        
-        Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
+        if !c.empty?
+          #puts "Searching through #{c}"
+          number = @@decklist_regexp.match(c)[1].to_i
+          card_name = @@decklist_regexp.match(c)[2].to_s.humanize
+          #puts "Found #{number} of #{card_name}"
+          
+          # get the card type through gatherer
+          #card_type = CardType.find_by_name "Undefined"
+          card_type = CardType.find_by_name(get_card_type(card_name))
+          
+          Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
+        end
       end
       self.save
     end

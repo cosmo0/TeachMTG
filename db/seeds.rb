@@ -15,6 +15,7 @@ type_enchantment = CardType.find_or_create_by_name "Enchantment"
 type_artifact = CardType.find_or_create_by_name "Artifact"
 type_instant = CardType.find_or_create_by_name "Instant"
 type_sorcery = CardType.find_or_create_by_name "Sorcery"
+type_creature_artifact = CardType.find_or_create_by_name "Artifact Creature"
 
 ##### Beginner's decks
 

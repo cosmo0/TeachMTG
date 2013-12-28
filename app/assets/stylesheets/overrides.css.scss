@@ -43,6 +43,11 @@ input {
 .decklist .card {
   position: relative;
 }
+.decklist .card .type {
+  color: #ccc;
+  font-size: 80%;
+  float: right;
+}
 
 #cardImage {
   text-align: center;

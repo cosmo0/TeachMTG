@@ -15,6 +15,8 @@
           = "#{c.quantity}x"
           %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank", data: { name: c.name } }
             = c.name
+          %span.type
+            = c.card_type.name
 
     - if user_is_admin
       = link_to "Edit this deck", edit_deck_path(@deck), class: "btn btn-warning"

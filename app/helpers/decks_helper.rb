@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module DecksHelper
 
   # is the current user admin ?
@@ -12,19 +14,28 @@ module DecksHelper
   # get the card's image tag
   def get_card_image(card_name)
     data = get_card_infos(card_name)
-    image_tag = data.css('img[id*="MainContent_SubContent_SubContent_cardImage"]')[0]
-    image_tag.remove_attribute("id")
+    image_tag = data.css('img[src^="http://magiccards.info/scans/"]')[0]
+    image_tag.remove_attribute("width")
+    image_tag.remove_attribute("height")
     image_tag.remove_attribute("style")
-    image_tag['src'] = image_tag['src'].gsub("../../", "http://gatherer.wizards.com/")
     return image_tag
   end
 
-  # gets the card's type
+  # get the card's type(s)
   def get_card_type(card_name)
+    #puts "Getting card type for #{card_name}"
     data = get_card_infos(card_name)
-    type_tag = data.css('div[id*="MainContent_SubContent_SubContent_typeRow"] div.value')[0].content
-    puts type_tag
-    return type_tag
+    # card type is "Types — subtypes, mana cost" just before the rules text
+    # Attention, the "-" separator is not a standard dash !
+    type_text = data.css('p.ctext')[0].previous_element.content.to_s.split(",")[0].split("—")[0]
+    type_text.strip!
+    type_text.gsub!('Legendary ', '')
+    type_text.gsub!('Basic ', '')
+    type_text.gsub!('Snow ', '')
+    type_text.gsub!('World ', '')
+    #puts "Card types found : #{type_text}"
+
+    return type_text
   end
 
   private
@@ -32,12 +43,9 @@ module DecksHelper
     # get all card infos
     def get_card_infos(card_name)
       require 'open-uri'
-      gatherer_name = ""
-      card_name.split(' ').each do |n|
-        gatherer_name += "+[#{n}]"
-      end
-      puts gatherer_name
-      url = "http://gatherer.wizards.com/Pages/Search/Default.aspx?name=#{gatherer_name}"
+      require 'uri'
+      card_name = URI.encode(card_name)
+      url = "http://magiccards.info/query?q=!#{card_name}&v=card&s=cname"
       Nokogiri::HTML(open(url))
     end
 
