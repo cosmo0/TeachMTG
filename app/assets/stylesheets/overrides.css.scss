@@ -43,9 +43,16 @@ input {
 .decklist .card {
   position: relative;
 }
+.decklist .card .cost {
+  color: #ccc;
+  font-size: 80%;
+  float: right;
+}
+
 .decklist .type {
   float: left;
-  width: 50%;
+  width: 47%;
+  padding-right: 3%;
 }
 
 /* card image preview */

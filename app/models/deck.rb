@@ -51,7 +51,7 @@ class Deck < ActiveRecord::Base
           puts "Card infos : #{card_infos}"
           card_type = CardType.find_by_name(card_infos[:type])
           
-          Card.create(name: card_name, quantity: number, deck: self, card_type: card_type)
+          Card.create(name: card_name, quantity: number, deck: self, card_type: card_type, cost: card_infos[:cost], cmc: card_infos[:cmc])
         end
       end
       self.save

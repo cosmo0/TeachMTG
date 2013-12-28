@@ -23,9 +23,10 @@ module DecksHelper
 
   # get the card's type(s)
   def get_card_infos(card_name)
+    card_name.strip!
     #puts "Getting card type for #{card_name}"
     data = get_card_data(card_name)
-    # card type is "Types — subtypes, mana cost" just before the rules text
+    # card type is "Types — subtypes, mana cost (cmc)" just before the rules text
     card_infos = data.css('p.ctext')[0].previous_element.content.to_s
 
     # Attention, the "-" separator is not a standard dash !
@@ -37,8 +38,16 @@ module DecksHelper
     type_text.gsub!('World ', '')
 
     # card mana cost
+    cost = ""
+    cmc = 0
+    if card_infos.count(',') > 0
+      cost_text = card_infos.split(",")[1]
+      cost_regexp = /([\d\w]+) \(([\d]+)\)/i # cost under the form: XY (Z), XY being the cost and Z being the CMC
+      cost = cost_regexp.match(cost_text)[1].to_s
+      cmc = cost_regexp.match(cost_text)[2].to_i
+    end
 
-    return { name: card_name, type: type_text }
+    return { name: card_name, type: type_text, cost: cost, cmc: cmc }
   end
 
   private
