@@ -26,6 +26,10 @@ group :development do
 
   gem 'therubyracer', platforms: :ruby
   gem 'sextant',              '~> 0.2.4'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Gems used only for assets and not required
