@@ -9,4 +9,5 @@
   - @decks.each do |d|
     %li.span2
       %a.thumbnail{ href: deck_path(d) }
-        %img{ src: "http://placehold.it/160x120&text=" + d.title }
+        %img{ src: "/assets/images/#{d.slug}.jpg" }
+        = d.title
