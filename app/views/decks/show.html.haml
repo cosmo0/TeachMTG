@@ -7,8 +7,6 @@
 
   .span5
 
-    %h2 Deck list
-
     .decklist.row-fluid
       - @types.each do |t|
         - if @deck.cards.joins(:card_type).where(card_types: { name: t.name }).any? # do not display card type if there aren't any card of this type
@@ -30,8 +28,6 @@
   .span7
 
     %img.pull-right.thumbnail{ src: "/assets/images/#{@deck.slug}.jpg" }
-
-    %h2 Deck description
 
     .description
       = markdown @deck.description
