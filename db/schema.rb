@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131228153412) do
+ActiveRecord::Schema.define(:version => 20131229174956) do
 
   create_table "card_categories", :force => true do |t|
     t.string   "name"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20131228153412) do
     t.string   "title"
     t.string   "category"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   add_index "decks", ["slug"], :name => "index_decks_on_slug", :unique => true

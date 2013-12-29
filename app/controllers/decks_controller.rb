@@ -5,13 +5,7 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(params[:id])
     @types = CardType.all
-    
-    description_file = Rails.root.join("public/assets/decks/descriptions/#{@deck.slug}.md")
-    if File.exist?(description_file)
-      @deck_description = BlueCloth.new(File.read(description_file)).to_html.html_safe
-    else
-      @deck_description = "Description file unavailable."
-    end
+    @deck_description = BlueCloth.new(@deck.description).to_html.html_safe
   end
 
   # edits a deck
@@ -30,6 +24,7 @@ class DecksController < ApplicationController
     @deck.slug = params[:deck][:slug]
     @deck.category = params[:deck][:category]
     @deck.decklist = params[:deck][:decklist]
+    @deck.description = params[:deck][:description]
 
     if @deck.save
       redirect_to @deck, notice: "Deck saved successfully"

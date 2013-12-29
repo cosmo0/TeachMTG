@@ -4,7 +4,7 @@ class Deck < ActiveRecord::Base
 
   has_many :cards
 
-  attr_accessible :category, :slug, :title, :cards
+  attr_accessible :category, :slug, :title, :cards, :description
 
   friendly_id :slug
 
