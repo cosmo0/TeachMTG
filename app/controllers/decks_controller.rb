@@ -5,7 +5,6 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(params[:id])
     @types = CardType.all
-    @deck_description = BlueCloth.new(@deck.description).to_html.html_safe
   end
 
   # edits a deck

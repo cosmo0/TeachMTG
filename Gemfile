@@ -5,7 +5,7 @@ ruby '1.9.3'
 gem 'rails',                  '3.2.13'
 
 gem 'haml',                   '~> 4.0.3'
-gem 'bluecloth',              '~> 2.2.0'
+gem 'redcarpet',              '~> 3.0.0'
 gem 'friendly_id',            '~> 4.0.9'
 gem 'devise',                 '~> 3.0.3'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
