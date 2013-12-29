@@ -14,6 +14,7 @@ gem 'bootstrap-sass',         '~> 2.3.2'
 gem 'bootswatch-rails',       '~> 0.5.0'
 gem 'jquery-rails',           '~> 2.0.2'
 gem 'nokogiri',               '~> 1.6.1'
+gem 'pagedown-rails',         '~> 1.1.3'
 
 group :development do
   gem 'foreman',              '~> 0.63.0'

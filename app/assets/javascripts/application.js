@@ -12,6 +12,9 @@
 //
 //= require jquery_ujs
 //= require bootstrap
+//= require markdown.converter
+//= require markdown.sanitizer
+//= require markdown.editor
 //= require_tree .
 
 // Avoid `console` errors in browsers that lack a console.

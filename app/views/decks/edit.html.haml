@@ -30,11 +30,12 @@
         .controls
           = f.text_area :decklist, rows: 15, class: "span12"
 
-    .span7
+    .span7.wmd-panel
       %div
         Description:
         %small.help-inline what does it do, what does it teach, common mistakes
-      = f.text_area :description, rows: 20, class: "span12"
+      #wmd-button-bar
+      = f.text_area :description, rows: 20, class: "span12 wmd-input"
       %small.help-block Start with heading level 3 (###)
 
   .form-actions
