@@ -31,3 +31,8 @@
 
     .description
       = markdown @deck.description
+
+%hr
+
+.row-fluid
+  .fb-comments{ data: { href: request.original_url, numposts: "10", colorscheme: "light" } }
