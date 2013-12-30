@@ -18,7 +18,7 @@
                 = "#{c.quantity}x"
                 %a{ href: "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", target: "_blank", data: { name: c.name } }
                   = c.name.titleize
-                - if !c.cost.empty?
+                - if !c.cost.nil? && !c.cost.empty?
                   %span.cost
                     = c.cost
 
