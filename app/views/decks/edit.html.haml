@@ -41,3 +41,17 @@
   .form-actions
     = f.submit "Save changes", class: "btn btn-primary"
     = link_to "Cancel", deck_path(@deck), class: "btn btn-link pull-right"
+
+- content_for :scripts do
+  = javascript_include_tag "markdown.converter"
+  = javascript_include_tag "markdown.sanitizer"
+  = javascript_include_tag "markdown.editor"
+  :javascript
+    $(function(){
+      if ($("#wmd-button-bar").length > 0)
+      {
+        var converter = Markdown.getSanitizingConverter();
+        var editor = new Markdown.Editor(converter);
+        editor.run();
+      }
+    });
