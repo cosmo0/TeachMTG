@@ -12,7 +12,7 @@
             - @deck.cards.joins(:card_type).where(card_types: { name: t.name }).order(:name).each do |c| # get all cards of this type for this deck
               .card
                 = "#{c.quantity}x"
-                = link_to c.name.titleize, "http://magiccards.info/query?q=#{c.name}&v=card&s=cname", { target: "_blank", data: { name: c.name } }
+                = link_to c.name.titleize, c.magiccards_url, { target: "_blank", data: { name: c.name } }
                 - if !c.cost.nil? && !c.cost.empty?
                   %span.cost= c.cost
 

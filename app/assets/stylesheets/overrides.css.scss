@@ -20,7 +20,10 @@ body { padding-top: 60px; }
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
@@ -31,29 +34,34 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
-#error_explanation, .error_explanation {
+#error_explanation,
+.error_explanation {
   color: red;
-}
-#error_explanation h2, .error_explanation h2 {
-  font-size: 14px;
+  h2 {
+    font-size: 14px;
+  }
 }
 
 /* Decklists */
 
-.decklist .card {
-  position: relative;
-}
-.decklist .card .cost {
-  color: #ccc;
-  font-size: 80%;
-  float: right;
+.decklist {
+  .card {
+    position: relative;
+
+    .cost {
+      color: #ccc;
+      font-size: 80%;
+      float: right;
+    }
+  }
+
+  .type {
+    float: left;
+    width: 47%;
+    padding-right: 3%;
+  }
 }
 
-.decklist .type {
-  float: left;
-  width: 47%;
-  padding-right: 3%;
-}
 
 /* card image preview */
 #cardImage {
