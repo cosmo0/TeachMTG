@@ -58,4 +58,20 @@ class Deck < ActiveRecord::Base
     end
   end
 
+  def has_type(type)
+    self.cards.joins(:card_type).where(card_types: { name: type.name }).any?
+  end
+
+  def cards_for_type(type)
+    self.cards.joins(:card_type).where(card_types: { name: type.name }).order(:name)
+  end
+
+  def number_of_cards_for_type(type)
+    sum = 0
+    cards_for_type(type).each do |c|
+      sum += c.quantity
+    end
+    return sum
+  end
+
 end
