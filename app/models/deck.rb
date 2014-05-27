@@ -48,6 +48,7 @@ class Deck < ActiveRecord::Base
           
           # get the card infos
           card_infos = get_card_infos(card_name)
+          raise "Card #{card_name} could not be found" if card_infos.nil?
           puts "Card infos : #{card_infos}"
           card_type = CardType.find_by_name(card_infos[:type])
           
