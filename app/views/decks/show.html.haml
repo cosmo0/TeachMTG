@@ -10,7 +10,7 @@
           .type
             %h3
               = @deck.number_of_cards_for_type(t)
-              = t.name.pluralize
+              = @deck.number_of_cards_for_type(t) > 1 ? t.name.pluralize : t.name
             - @deck.cards_for_type(t).each do |c| # get all cards of this type for this deck
               .card
                 = "#{c.quantity}x"
