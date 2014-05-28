@@ -27,7 +27,7 @@ module DecksHelper
     #puts "Getting card type for #{card_name}"
     data = get_card_data(card_name)
     # card type is "Types — subtypes, mana cost (cmc)" just before the rules text
-    raise "No info could be found for card #{card_name}" if data.css('p.ctext')[0].nil? || data.css('p.ctext')[0].previous_element.nil?
+    raise "No info could be found for card #{card_name}" if data.css('p.ctext').empty? || data.css('p.ctext')[0].previous_element.nil?
     card_infos = data.css('p.ctext')[0].previous_element.content.to_s
 
     # Attention, the "-" separator is not a standard dash !
